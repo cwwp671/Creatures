@@ -1,16 +1,16 @@
-from tkinter import CASCADE
 from django.db import models
 
-# Create your models here.
-
+#Creature Model Path
 def model_image_path(instance, filename):
     path, ext = filename[-5:].split('.', 1)
     return f"images/creatures/{instance.name}.{ext}"
 
+#Ability Icon Image Path
 def ability_icon_image_path(instance, filename):
     path, ext = filename[-5:].split('.', 1)
     return f"images/creatures/{instance.name}.{ext}"
 
+#NPC Class Model (Warrior, Mage etc.)
 class Class(models.Model):
     name = models.CharField(max_length=128)
     base_health = models.SmallIntegerField()
@@ -29,7 +29,7 @@ class Class(models.Model):
         verbose_name = 'class'
         verbose_name_plural = 'classes'
 
-
+#NPC Type Model (Normal, Elite, Boss, etc.)
 class Classification(models.Model):
     name = models.CharField(max_length=128)
     base_health_multiplier = models.FloatField()
@@ -44,7 +44,7 @@ class Classification(models.Model):
     def __str__(self):
         return self.name
 
-
+#NPC Expansion Origin Model
 class Expansion(models.Model):
     name = models.CharField(max_length=128)
     base_health_multiplier = models.FloatField()
@@ -59,7 +59,7 @@ class Expansion(models.Model):
     def __str__(self):
         return self.name
 
-
+#NPC Experience Level Model
 class Level(models.Model):
     number = models.SmallIntegerField()
     base_health_multiplier = models.FloatField()
@@ -74,28 +74,28 @@ class Level(models.Model):
     def __str__(self):
         return str(self.number)
 
-
+#NPC Faction Alignment Model
 class Faction(models.Model):
     name = models.CharField(max_length=128)
 
     def __str__(self):
         return self.name
 
-
+#Ability School of Magic Model (Fire, Frost, etc.)
 class School(models.Model):
     name = models.CharField(max_length=128)
 
     def __str__(self):
         return self.name
 
-
+#Ability Dispel Type Model (Magic, Curse, Poison, etc.)
 class DispelType(models.Model):
     name = models.CharField(max_length=128)
 
     def __str__(self):
         return self.name
 
-
+#NPC Abilities Model (Fireball, Shadow Bolt, etc.)
 class Ability(models.Model):
     ability_id = models.IntegerField()
     name = models.CharField(max_length=128)
@@ -118,13 +118,11 @@ class Ability(models.Model):
         verbose_name = 'ability'
         verbose_name_plural = 'abilities'
 
-
+#NPC Model
 class Creature(models.Model):
-    #id = models.IntegerField()
     name = models.CharField(max_length=128)
     model_image = models.ImageField(upload_to=model_image_path)
     classification = models.ForeignKey('Classification', related_name='creatures', on_delete=models.CASCADE)
-    #react
     type = models.CharField(max_length=128)
     level = models.ForeignKey('Level', related_name='creatures', on_delete=models.CASCADE)
     faction = models.ForeignKey('Faction', related_name='creatures', on_delete=models.CASCADE)
@@ -154,6 +152,8 @@ class Creature(models.Model):
         self.experience = self.calculate_experience()
         self.reputation = self.calculate_reputation()
         super(Creature, self).save(*args, **kwargs)
+
+    #Automatic stat calculations based on linked models
 
     def calculate_health(self):
         if self.creature_class.base_health != 0:
@@ -202,18 +202,3 @@ class Creature(models.Model):
             return self.creature_class.base_reputation * self.classification.base_reputation_multiplier * self.level.base_reputation_multiplier * self.expansion.base_reputation_multiplier
         else:
             return 0
-
-        
-
-
-        
-
-    #on Save
-    #Health
-    #Mana
-    #Armor
-    #Melee_Min
-    #Melee_Max
-    #Money
-    #Experience
-    #Reputation

@@ -1,7 +1,7 @@
 from django.test import TestCase
 from creatures.models import Creature, Class, Classification, Expansion, Level, Faction, School, DispelType, Ability
 
-# Create your tests here.
+#Model testing cases
 
 class ClassTestCase(TestCase):
     def setUp(self):

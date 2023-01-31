@@ -1,10 +1,10 @@
 import os
-
 from django.core.files import File
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
-from creatures.models import Creature, Class, Classification, Expansion, Level, Faction, School, DispelType, Ability
+from creatures.models import Class, Classification, Expansion, Level, Faction, School, DispelType, Ability, Creature
 
+#Populates database with default data if there is no database
 class Command(BaseCommand):
 
     def handle(self, *args, **options):
@@ -86,9 +86,6 @@ class Command(BaseCommand):
                 'base_armor': 1,
                 'base_melee_min': 1,
                 'base_melee_max': 1,
-                #'base_money': 1,
-                #'base_experience': 1,
-                #'base_reputation': 1,
             },
         ]
 
@@ -127,7 +124,6 @@ class Command(BaseCommand):
                 'base_melee_max_multiplier': 1,
                 'base_money_multiplier': 1,
                 'base_experience_multiplier': 1,
-                #'base_reputation_multiplier': 1,
             },
         ]
 
@@ -141,7 +137,6 @@ class Command(BaseCommand):
                 'base_melee_max_multiplier': 1,
                 'base_money_multiplier': 1,
                 'base_experience_multiplier': 1,
-                #'base_reputation_multiplier': 1,
             },
         ]
 
@@ -192,14 +187,6 @@ class Command(BaseCommand):
                 'creature_class': classes[0],
                 'expansion': expansions[0],
                 'abilities': [abilities[0]],
-                #'health': 1,
-                #'mana': 1,
-                #'armor': 1,
-                #'melee_min': 1,
-                #'melee_max': 1,
-                #'money': 1,
-                #'experience': 1,
-                #'reputation': 1,
             },
             {
                 'name': 'Default Creature 2',
@@ -211,14 +198,6 @@ class Command(BaseCommand):
                 'creature_class': classes[0],
                 'expansion': expansions[0],
                 'abilities': [abilities[0]],
-                #'health': 1,
-                #'mana': 1,
-                #'armor': 1,
-                #'melee_min': 1,
-                #'melee_max': 1,
-                #'money': 1,
-                #'experience': 1,
-                #'reputation': 1,
             },
         ]
 
@@ -256,4 +235,3 @@ class Command(BaseCommand):
 
             creature.save()
             creature.abilities.set(abilities_list)
-

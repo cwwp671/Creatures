@@ -1,15 +1,7 @@
 from django.contrib import admin
-from creatures.models import Class
-from creatures.models import Classification
-from creatures.models import Expansion
-from creatures.models import Level
-from creatures.models import Faction
-from creatures.models import School
-from creatures.models import DispelType
-from creatures.models import Ability
-from creatures.models import Creature
-# Register your models here.
+from creatures.models import Class, Classification, Expansion, Level, Faction, School, DispelType, Ability, Creature
 
+#Models registrations
 class ClassAdmin(admin.ModelAdmin):
     list_display = ('name', 'base_health', 'base_mana', 'base_armor', 'base_melee_min', 'base_melee_max', 'base_money', 'base_experience', 'base_reputation')
 

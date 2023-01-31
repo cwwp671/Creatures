@@ -1,6 +1,7 @@
 from rest_framework.serializers import ModelSerializer
-from creatures.models import Creature, Class, Classification, Expansion, Level, Faction, School, DispelType, Ability
+from creatures.models import Class, Classification, Expansion, Level, Faction, School, DispelType, Ability, Creature
 
+#Serialization of models
 class ClassSerializer(ModelSerializer):
 
     class Meta:

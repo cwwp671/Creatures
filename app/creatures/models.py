@@ -1,16 +1,3 @@
-#from django.db import models
-
-
-#def cat_image_path(instance, filename):
-#    path, ext = filename[-5:].split('.', 1)
-#    return f"images/cats/{instance.name}.{ext}"
-
-
-#class Cat(models.Model):
-#    name = models.CharField(max_length=128)
-#    image = models.ImageField(upload_to=cat_image_path)
-#    created_time = models.DateTimeField(auto_now_add=True)
-
 from tkinter import CASCADE
 from django.db import models
 
@@ -111,8 +98,8 @@ class DispelType(models.Model):
 
 class Ability(models.Model):
     ability_id = models.IntegerField()
-    icon_image = models.ImageField(upload_to=ability_icon_image_path)
     name = models.CharField(max_length=128)
+    icon_image = models.ImageField(upload_to=ability_icon_image_path)
     tooltip = models.TextField()
     cost = models.IntegerField()
     range = models.IntegerField()

@@ -1,3 +1,12 @@
+"""
+ * Author: Connor Pandolph
+ * Project: World of Warcraft Creature Database
+ * API: REST
+ * Framework: Django
+ * Container: Docker
+ * Date: 2022
+"""
+
 from rest_framework.serializers import ModelSerializer
 from creatures.models import Class, Classification, Expansion, Level, Faction, School, DispelType, Ability, Creature
 

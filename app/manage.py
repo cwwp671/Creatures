@@ -1,3 +1,12 @@
+"""
+ * Author: Connor Pandolph
+ * Project: World of Warcraft Creature Database
+ * API: REST
+ * Framework: Django
+ * Container: Docker
+ * Date: 2022
+"""
+
 """Django's command-line utility for administrative tasks."""
 import os
 import sys

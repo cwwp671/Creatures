@@ -1,3 +1,12 @@
+<<header
+ * Author: Connor Pandolph
+ * Project: World of Warcraft Creature Database
+ * API: REST
+ * Framework: Django
+ * Container: Docker
+ * Date: 2022
+header
+
 #!/bin/bash
 set -ex
 

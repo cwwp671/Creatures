@@ -1,3 +1,12 @@
+"""
+ * Author: Connor Pandolph
+ * Project: World of Warcraft Creature Database
+ * API: REST
+ * Framework: Django
+ * Container: Docker
+ * Date: 2022
+"""
+
 from django.contrib import admin
 from creatures.models import Class, Classification, Expansion, Level, Faction, School, DispelType, Ability, Creature
 

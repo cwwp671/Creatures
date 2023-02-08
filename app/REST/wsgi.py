@@ -1,10 +1,10 @@
 """
-WSGI config for REST project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/4.0/howto/deployment/wsgi/
+ * Author: Connor Pandolph
+ * Project: World of Warcraft Creature Database
+ * API: REST
+ * Framework: Django
+ * Container: Docker
+ * Date: 2022
 """
 
 import os

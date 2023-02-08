@@ -1,6 +1,6 @@
 """
  * Author: Connor Pandolph
- * Project: World of Warcraft Creature Database
+ * Project: Creatures
  * API: REST
  * Framework: Django
  * Container: Docker
